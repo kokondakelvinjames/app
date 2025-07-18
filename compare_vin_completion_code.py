@@ -5,9 +5,10 @@ import csv
 DYNAMODB_TABLE = 'CampaignVin'
 CSV_FILE = 'input_vins.csv'
 OUTPUT_FILE = 'comparison_report.csv'
+REGION = 'us-east-1'  # Change this to your AWS region if needed
 
 # Initialize DynamoDB client
-session = boto3.Session()
+session = boto3.Session(region_name=REGION)
 dynamodb = session.resource('dynamodb')
 table = dynamodb.Table(DYNAMODB_TABLE)
 
